@@ -1,0 +1,1 @@
+import '@/pages/artEventPage/artEventPage.css'
