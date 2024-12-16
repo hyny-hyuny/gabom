@@ -2,8 +2,11 @@
 전시 리뷰 기록/공유 서비스 입니다.
 
 ## Contributor
-- Juhyun Park (Design & FE)
-- Soohyun Jo (FE)
+|  조수현(Soohyun Jo)  |  박주현(Juhyun Park)  |
+|:----:|:----:|
+|  FE  | Design & FE |
+|![soohyun](./src/assets/profile/soohyun_jo.jpg)|![juhyun](./src/assets/profile/juhyun_park.jpg)|
+
 
 ## 🛠️ Tech
 
