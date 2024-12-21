@@ -1,9 +1,7 @@
-import { html, LitElement, css } from "lit";
-import resetCSS from "./resetCSS";
-import indexCSS from "./indexCSS";
-import themeCSS from "./themeCSS";
+import { html, css } from "lit";
+import IndexCSS from "../styles/indexCSS";
 
-class Header extends LitElement {
+class Header extends IndexCSS {
   static properties = {
     pageName: { attribute: true },
     pageTitle: { attribute: true },
@@ -23,9 +21,7 @@ class Header extends LitElement {
 
   static get styles() {
     return [
-      resetCSS,
-      indexCSS,
-      themeCSS,
+      ...IndexCSS.styles,
       css/* css */ `
         header {
           width: 100%;
@@ -43,7 +39,7 @@ class Header extends LitElement {
           border: none;
           padding: 0;
           position: absolute;
-          left: var(--spacing-6);  /* 16px */
+          left: var(--spacing-6); /* 16px */
           top: 50%;
           transform: translateY(-50%);
           cursor: pointer;
@@ -63,8 +59,7 @@ class Header extends LitElement {
     } else if (pageName === Header.pageNames.DETAIL) {
       heading = html``;
     } else {
-      heading = html`
-      <h1 class="logo">
+      heading = html` <h1 class="logo">
         <a href="./../index.html">
           <img src="/logo/horizontal-sm.svg" alt="가봄, 가본 사람들의 리뷰" />
         </a>
@@ -104,7 +99,11 @@ class Header extends LitElement {
   }
 
   render() {
-    return html/* html */ `<header>${this.renderHeaderContent(this.pageName)} ${this.renderBackButton(this.pageName)}</header> `;
+    return html/* html */ `
+    <header>
+      ${this.renderHeaderContent(this.pageName)} 
+      ${this.renderBackButton(this.pageName)}
+      </header> `;
   }
 }
 

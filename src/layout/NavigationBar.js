@@ -1,10 +1,10 @@
-import { html, LitElement, css } from "lit";
-import resetCSS from "./resetCSS";
+import { html, css } from "lit";
+import IndexCSS from "../styles/indexCSS";
 
-class NavigationBar extends LitElement {
+class NavigationBar extends IndexCSS {
   static get styles() {
     return [
-      resetCSS,
+      ...IndexCSS.styles,
       css`
         ul {
           display: flex;
