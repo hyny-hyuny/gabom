@@ -9,13 +9,26 @@ class BackButton extends IndexCSS {
         .back {
           width: 1.5rem;
           height: 1.5rem;
+          cursor: pointer;
         }
       `,
     ];
   }
+  
+  goBack() {
+    console.log('뒤로가기');
+    window.history.go(-1);
+  }
+  
 
   render() {
-    return html/* html */ ` <button class="back" type="button" aria-label="뒤로가기">
+    return html/* html */ ` 
+    <button 
+      class="back" 
+      type="button" 
+      aria-label="뒤로가기"
+      @click=${()=>this.goBack()}
+    >
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <g clip-path="url(#clip0_2949_6558)">
           <g filter="url(#filter0_d_2949_6558)">
