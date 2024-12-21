@@ -22,7 +22,6 @@ class Header extends LitElement {
   }
 
   static get styles() {
-    console.log();
     return [
       resetCSS,
       indexCSS,
@@ -31,7 +30,7 @@ class Header extends LitElement {
         header {
           width: 100%;
           height: 2.75rem; /* 44px */
-          padding: 0 1rem;
+          padding: 0 var(--spacing-6); /* 0 16px */
           display: flex;
           justify-content: center;
           align-items: center;
@@ -44,7 +43,7 @@ class Header extends LitElement {
           border: none;
           padding: 0;
           position: absolute;
-          left: 1rem;
+          left: var(--spacing-6);  /* 16px */
           top: 50%;
           transform: translateY(-50%);
           cursor: pointer;
@@ -59,12 +58,13 @@ class Header extends LitElement {
     if (pageName === Header.pageNames.DEPTH) {
       heading = html`
         <h1 class="sr-only">가봄</h1>
-        <h2>${this.pageTitle}</h2>
+        <h2 class="label-md">${this.pageTitle}</h2>
       `;
     } else if (pageName === Header.pageNames.DETAIL) {
       heading = html``;
     } else {
-      heading = html`<h1 class="logo">
+      heading = html`
+      <h1 class="logo">
         <a href="./../index.html">
           <img src="/logo/horizontal-sm.svg" alt="가봄, 가본 사람들의 리뷰" />
         </a>
