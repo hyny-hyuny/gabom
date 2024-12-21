@@ -22,7 +22,6 @@ class Header extends IndexCSS {
   }
 
   static get styles() {
-    
     console.log(...IndexCSS.styles);
     return [
       ...IndexCSS.styles,
@@ -34,16 +33,17 @@ class Header extends IndexCSS {
           display: flex;
           justify-content: center;
           align-items: center;
-          position: relative;
+          position: fixed;
+          top: 0;
+          min-width: 20rem; /* 320px */
+          max-width: 31.25rem; /* 500px */
         }
 
         back-button {
-          width: 100%;
           position: absolute;
           left: var(--spacing-6); /* 16px */
           top: 50%;
           transform: translateY(-50%);
-          cursor: pointer;
         }
       `,
     ];

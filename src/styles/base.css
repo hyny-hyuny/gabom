@@ -28,4 +28,5 @@ body {
   max-width: 31.25rem; /* 500px */
   height: 100vh;
   margin: 0 auto;
+  padding-top: 2.75rem; /* 44px */
 }
