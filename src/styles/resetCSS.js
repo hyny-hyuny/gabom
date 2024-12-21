@@ -5,7 +5,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 body{line-height:1}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
 nav ul{list-style:none}
-button {border:none;background:transparent}
+button {border:none;background:transparent;padding:0}
 blockquote,q{quotes:none}
 blockquote:before,blockquote:after,q:before,q:after{content:none}
 a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
