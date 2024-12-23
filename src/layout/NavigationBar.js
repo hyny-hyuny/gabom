@@ -3,6 +3,10 @@ import resetCSS from "./resetCSS";
 import "@/components/atoms/NavItem.js";
 
 class NavigationBar extends LitElement {
+  static properties = {
+    pathname: { state: true },
+  };
+
   static get styles() {
     return [
       resetCSS,
@@ -25,14 +29,23 @@ class NavigationBar extends LitElement {
     ];
   }
 
+  constructor() {
+    super();
+    this.pathname = this.getURLPathname();
+  }
+
+  getURLPathname() {
+    return window.location.pathname;
+  }
+
   render() {
     return html`
       <nav>
         <ul>
-          <c-nav-item label="전시" pageName="artEventPage" icon="/src/assets/icons/exhibition.svg"></c-nav-item>
-          <c-nav-item label="장소" pageName="placePage" icon="/src/assets/icons/place.svg"></c-nav-item>
-          <c-nav-item label="리뷰" pageName="reviewPage" icon="/src/assets/icons/review.svg"></c-nav-item>
-          <c-nav-item label="MY" pageName="myPage" icon="/src/assets/icons/my.svg"></c-nav-item>
+          <c-nav-item label="전시" pageName="artEventPage" icon="/src/assets/icons/exhibition.svg" pathname="${this.pathname}"></c-nav-item>
+          <c-nav-item label="장소" pageName="placePage" icon="/src/assets/icons/place.svg" pathname="${this.pathname}"></c-nav-item>
+          <c-nav-item label="리뷰" pageName="reviewPage" icon="/src/assets/icons/review.svg" pathname="${this.pathname}"></c-nav-item>
+          <c-nav-item label="MY" pageName="myPage" icon="/src/assets/icons/my.svg" pathname="${this.pathname}"></c-nav-item>
         </ul>
       </nav>
     `;

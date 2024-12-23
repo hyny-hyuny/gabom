@@ -6,6 +6,8 @@ class NavItem extends LitElement {
     label: { attribute: true },
     pageName: { attribute: true },
     icon: { attribute: true },
+    pathname: { attribute: true },
+    current: { state: true },
   };
 
   static get styles() {
@@ -23,8 +25,21 @@ class NavItem extends LitElement {
           font-size: var(--label-sm);
           font-weight: 500;
         }
+
+        .--current {
+          color: var(--tertairy);
+        }
       `,
     ];
+  }
+
+  checkPathnameEqual() {
+    return -1 < this.pathname.indexOf(this.pageName);
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.current = this.checkPathnameEqual();
   }
 
   render() {
@@ -32,7 +47,7 @@ class NavItem extends LitElement {
       <li>
         <a href="/src/pages/${this.pageName}/">
           <img src="${this.icon}" />
-          <span>${this.label}</span>
+          <span class="${this.current ? "--current" : ""}">${this.label}</span>
         </a>
       </li>
     `;
