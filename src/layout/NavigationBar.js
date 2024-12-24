@@ -1,15 +1,16 @@
 import { html, LitElement, css } from "lit";
 import resetCSS from "./resetCSS";
+import IndexCSS from "../styles/indexCSS";
 import "@/components/atoms/NavItem.js";
 
 class NavigationBar extends LitElement {
   static properties = {
     pathname: { state: true },
   };
-
+  
   static get styles() {
     return [
-      resetCSS,
+      ...IndexCSS.styles,
       css`
         nav {
           display: flex;
