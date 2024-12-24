@@ -61,7 +61,7 @@ class Header extends IndexCSS {
       heading = html``;
     } else {
       heading = html` <h1 class="logo">
-        <a href="./../index.html">
+        <a href="/">
           <img src="/logo/horizontal-sm.svg" alt="가봄, 가본 사람들의 리뷰" />
         </a>
       </h1>`;
