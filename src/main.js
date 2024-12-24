@@ -1,4 +1,5 @@
 import "@/layout/NavigationBar";
+import "@/layout/Header";
 import client from "@/api/pocketbase";
 
 
