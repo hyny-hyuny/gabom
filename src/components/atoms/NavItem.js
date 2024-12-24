@@ -1,5 +1,5 @@
 import { css, html, LitElement } from "lit";
-import resetCSS from "../../Layout/resetCSS";
+import IndexCSS from "@/styles/indexCSS.js";
 
 class NavItem extends LitElement {
   static properties = {
@@ -12,7 +12,7 @@ class NavItem extends LitElement {
 
   static get styles() {
     return [
-      resetCSS,
+      ...IndexCSS.styles,
       css`
         a {
           display: flex;

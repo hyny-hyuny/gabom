@@ -28,5 +28,6 @@ export default css`
     max-width: 31.25rem; /* 500px */
     height: 100vh;
     margin: 0 auto;
+    position: relative;
   }
 `;

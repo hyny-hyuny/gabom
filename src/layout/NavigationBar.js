@@ -1,5 +1,4 @@
 import { html, LitElement, css } from "lit";
-import resetCSS from "./resetCSS";
 import IndexCSS from "../styles/indexCSS";
 import "@/components/atoms/NavItem.js";
 
@@ -15,9 +14,9 @@ class NavigationBar extends LitElement {
         nav {
           display: flex;
           flex-direction: column;
-          position: fixed;
+          position: absolute;
           bottom: 0;
-          width: 100vw;
+          width: 100%;
         }
 
         ul {
