@@ -1,32 +1,52 @@
-import { html, css } from "lit";
+import { html, LitElement, css } from "lit";
+import resetCSS from "./resetCSS";
 import IndexCSS from "../styles/indexCSS";
+import "@/components/atoms/NavItem.js";
 
-class NavigationBar extends IndexCSS {
+class NavigationBar extends LitElement {
+  static properties = {
+    pathname: { state: true },
+  };
+  
   static get styles() {
     return [
       ...IndexCSS.styles,
       css`
+        nav {
+          display: flex;
+          flex-direction: column;
+          position: fixed;
+          bottom: 0;
+          width: 100vw;
+        }
+
         ul {
           display: flex;
           flex-direction: row;
-          justify-content: space-around;
-        }
-
-        li {
-          padding: 1rem;
+          padding: 0 0.75rem 0.5rem 0.75rem;
+          justify-content: space-around; //!
         }
       `,
     ];
+  }
+
+  constructor() {
+    super();
+    this.pathname = this.getURLPathname();
+  }
+
+  getURLPathname() {
+    return window.location.pathname;
   }
 
   render() {
     return html`
       <nav>
         <ul>
-          <li><a href="/src/pages/artEventPage/">전시</a></li>
-          <li><a href="/src/pages/placePage/">장소</a></li>
-          <li><a href="/src/pages/reviewPage/">리뷰</a></li>
-          <li><a href="/src/pages/myPage/">저장</a></li>
+          <c-nav-item label="전시" pageName="artEventPage" icon="/src/assets/icons/exhibition.svg" pathname="${this.pathname}"></c-nav-item>
+          <c-nav-item label="장소" pageName="placePage" icon="/src/assets/icons/place.svg" pathname="${this.pathname}"></c-nav-item>
+          <c-nav-item label="리뷰" pageName="reviewPage" icon="/src/assets/icons/review.svg" pathname="${this.pathname}"></c-nav-item>
+          <c-nav-item label="MY" pageName="myPage" icon="/src/assets/icons/my.svg" pathname="${this.pathname}"></c-nav-item>
         </ul>
       </nav>
     `;
