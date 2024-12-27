@@ -22,7 +22,6 @@ class Header extends IndexCSS {
   }
 
   static get styles() {
-    console.log(...IndexCSS.styles);
     return [
       ...IndexCSS.styles,
       css/* css */ `

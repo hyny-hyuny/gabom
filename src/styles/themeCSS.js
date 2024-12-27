@@ -140,32 +140,32 @@ export default css`
 
   /* paragraph  */
   .paragraph-2xs {
-    font-size: var(--label-2xs);
+    font-size: var(--paragraph-2xs);
     font-weight: 400;
   }
 
   .paragraph-xs {
-    font-size: var(--label-xs);
+    font-size: var(--paragraph-xs);
     font-weight: 400;
   }
 
   .paragraph-sm {
-    font-size: var(--label-sm);
+    font-size: var(--paragraph-sm);
     font-weight: 400;
   }
 
   .paragraph-md {
-    font-size: var(--label-md);
+    font-size: var(--paragraph-md);
     font-weight: 400;
   }
 
   .paragraph-lg {
-    font-size: var(--label-lg);
+    font-size: var(--paragraph-lg);
     font-weight: 400;
   }
 
   .paragraph-xl {
-    font-size: var(--label-xl);
+    font-size: var(--paragraph-xl);
     font-weight: 400;
   }
 `;
