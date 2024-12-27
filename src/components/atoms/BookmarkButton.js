@@ -2,12 +2,16 @@ import { css, html, LitElement } from "lit";
 import IndexCSS from "@/styles/indexCSS.js";
 
 class BookmarkButton extends LitElement {
+  static properties = {
+    isBookmarked: { attribute: true },
+  };
 
   static get styles() {
     return [
       ...IndexCSS.styles,
       css`
         .bookmark-button {
+          cursor: pointer;
           color: var(--gray-100);
 
           &.--is-bookmarked {
@@ -18,8 +22,18 @@ class BookmarkButton extends LitElement {
     ];
   }
 
-  clickBookmark() {
+  toggleBookmark() {
     this.shadowRoot.querySelector(".bookmark-button").classList.toggle("--is-bookmarked");
+  }
+
+  updated() {
+    if (this.isBookmarked) {
+      this.shadowRoot.querySelector(".bookmark-button").classList.add("--is-bookmarked");
+    }
+  }
+
+  clickBookmark() {
+    this.toggleBookmark();
   }
 
   render() {
