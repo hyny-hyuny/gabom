@@ -39,9 +39,6 @@ class NavItem extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     this.current = this.checkPathnameEqual();
-    if (this.current) {
-      this.shadowRoot.querySelector(".nav-item-wrapper").classList.add("--current");
-    }
   }
 
   updated() {
