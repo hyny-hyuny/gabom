@@ -22,6 +22,7 @@ class KeywordTag extends LitElement {
 
           .keyword {
             display: inline;
+            margin: 0px 0px 0px 8px
           }
         }
       `,
