@@ -23,7 +23,11 @@ class NavigationBar extends LitElement {
           display: flex;
           flex-direction: row;
           padding: 0 0.75rem 0.5rem 0.75rem;
-          justify-content: space-around; //!
+
+          c-nav-item {
+            width: 100%;
+          }
+
         }
       `,
     ];

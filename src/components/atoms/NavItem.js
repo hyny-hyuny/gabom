@@ -13,15 +13,23 @@ class NavItem extends LitElement {
     return [
       ...IndexCSS.styles,
       css`
+
         .nav-item-wrapper {
+          border-top: 4px solid transparent;
+
+          &.--current {
+            color: var(--tertairy);
+            border-top: 4px solid var(--primary);
+          }
+        }
+
+        .nav-item {
           display: flex;
           flex-direction: column;
           align-items: center;
           padding: 0.5rem 0.75rem;
 
-          &.--current {
-            color: var(--tertairy);
-          }
+        
         }
 
         span {
@@ -113,8 +121,8 @@ class NavItem extends LitElement {
 
   render() {
     return html`
-      <li>
-        <a class="nav-item-wrapper" href="/src/pages/${this.pageName}/">
+      <li class="nav-item-wrapper">
+        <a class="nav-item" href="/src/pages/${this.pageName}/">
           ${this.renderNavIcon(this.label)}
           <span>${this.label}</span>
         </a>
