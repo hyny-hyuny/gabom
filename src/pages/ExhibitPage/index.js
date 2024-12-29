@@ -1,1 +1,1 @@
-import '@/pages/artEventPage/artEventPage.css'
+import "@/pages/ExhibitPage/ExhibitPage.css";
