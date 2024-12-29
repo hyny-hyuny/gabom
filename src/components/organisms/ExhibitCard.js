@@ -1,13 +1,29 @@
 import { html, css } from "lit";
-import IndexCSS from "../../styles/indexCSS";
+import IndexCSS from "@/styles/indexCSS";
+
+import "@/components/atoms/KeywordTag.js";
 
 class ExhibitCard extends IndexCSS {
-  static proterties = {
+  static properties = {
     pageName: { attribute: true },
+    exhibitTitle: { attribute: true },
+    startDate: { attribute: true },
+    endDate: { attribute: true },
+    exhibitPlace: { attribute: true },
+    ageRange: { attribute: true }, // all, 12, 15, 19
+    reviewNum: { attribute: true }, // number
   };
 
   static pageNames = {
+    MAIN: "main",
     REVIEW_DETAIL: "review-detail",
+  };
+
+  ageRangeBadge = {
+    all: "전체 연령 관람 가능",
+    12: "12세 이상 관람 가능",
+    15: "15세 이상 관람 가능",
+    19: "19세 이상 관람 가능",
   };
 
   static get styles() {
@@ -28,6 +44,8 @@ class ExhibitCard extends IndexCSS {
             aspect-ratio: 1 / 1.38;
             overflow: hidden;
             border-radius: var(--radius-2xs);
+            display: flex;
+            justify-content: center;
           }
 
           .exhibit-info {
@@ -35,17 +53,6 @@ class ExhibitCard extends IndexCSS {
             flex-flow: column nowrap;
             align-items: start;
             gap: var(--spacing-3);
-          }
-
-          .keyword-wrapper {
-            background-color: var(--gray-50);
-            border-radius: var(--radius-2xs);
-            padding: 0.125rem 0.5rem;
-
-            .keyword {
-              display: inline;
-              margin-left: 0.5rem;
-            }
           }
 
           .badge {
@@ -71,43 +78,29 @@ class ExhibitCard extends IndexCSS {
   }
 
   render() {
+    console.log(this.exhibitTitle);
     return html/* html */ `
       <article class="exhibit-card">
         <a href="/pages/ExhibitDetailPage/">
           <figure>
             <div class="img-wrapper">
-              <img style="height: 100%" src="/src/assets/profile/juhyun_park.jpg" alt="전시 이름" />
+              <img style="height: 100%" src="/src/assets/profile/juhyun_park.jpg" alt="${this.exhibitTitle}" />
             </div>
             <figcaption class="exhibit-info">
-              <strong class="exhibit-title label-md">소행성이 빛을 내는 방법</strong>
+              <strong class="exhibit-title label-md">${this.exhibitTitle}</strong>
 
-              <div class="keyword-wrapper paragraph-xs">
-                <span class="emoji">🗓️</span>
-                <p class="keyword">
-                  <time datetime="2024-12-01">2024.12.1</time> ~
-                  <time datetime="2024-12-24">2024.12.24</time>
-                </p>
-              </div>
+              <c-keyword-tag type="date" startDate=${this.startDate} endDate=${this.endDate}></c-keyword-tag>
 
-              <div class="keyword-wrapper paragraph-xs">
-                <span class="emoji">📍</span>
-                <p class="keyword">갤러리헬렌에이</p>
-              </div>
+              <c-keyword-tag type="address" label=${this.exhibitPlace}> </c-keyword-tag>
 
-              <div class="keyword-wrapper paragraph-xs">
-                <span class="emoji">👥</span>
-                <p class="keyword">모든 연령 관람 가능</p>
-              </div>
+              <c-keyword-tag type="range" label=${this.ageRangeBadge[this.ageRange]}></c-keyword-tag>
 
               <div class="badge label-xs">전시중</div>
 
-              <p class="review-num paragraph-xs">방문자 리뷰 33</p>
+              <p class="review-num paragraph-xs">방문자 리뷰 ${this.reviewNum}</p>
             </figcaption>
           </figure>
         </a>
-        <button class="bookmark" type="button" aria-label="북마크 추가" aria-pressed="false">
-          <img src="/src/assets/icons/bookmark.svg" alt="" aria-hidden="true" />
-        </button>
       </article>
     `;
   }

@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="/src/pages/ExhibitPage/index.js"></script>
     <title>Gabom | 전시</title>
-    <link rel="stylesheet" href="../../styles/base.css" />
+    <link rel="stylesheet" href="/src/styles/base.css" />
     <script type="module" src="/src/main.js"></script>
   </head>
   <body>
     <div class="app-wrapper">
       <c-header></c-header>
       <h1>전시 페이지</h1>
-      <c-exhibit-card pageName="main"></c-exhibit-card>
+
+      <c-exhibit-card pageName="main" exhibitTitle="짱구는 못말려" startDate="2024-12-01" endDate="2024-12-25" exhibitPlace="그라운드시소" ageRange="all" reviewNum="33"></c-exhibit-card>
+
       <c-nav-bar></c-nav-bar>
     </div>
   </body>
