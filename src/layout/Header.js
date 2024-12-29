@@ -10,7 +10,6 @@ class Header extends IndexCSS {
   };
 
   static pageNames = {
-    MAIN_DEPTH: "main-depth",
     DEPTH: "depth",
     DETAIL: "detail",
   };
@@ -70,8 +69,10 @@ class Header extends IndexCSS {
   }
 
   renderBackButton(pageName) {
-    if (pageName) {
-      return html` <back-button></back-button> `;
+    if (!pageName) {
+      return html``;
+    } else {
+      return html`<back-button></back-button>`;
     }
   }
 
