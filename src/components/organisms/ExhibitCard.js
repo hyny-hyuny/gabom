@@ -2,6 +2,8 @@ import { html, css } from "lit";
 import IndexCSS from "@/styles/indexCSS";
 
 import "@/components/atoms/KeywordTag.js";
+import "@/components/atoms/Badge.js";
+import "@/components/atoms/BookmarkButton.js";
 
 class ExhibitCard extends IndexCSS {
   static properties = {
@@ -55,14 +57,6 @@ class ExhibitCard extends IndexCSS {
             gap: var(--spacing-3);
           }
 
-          .badge {
-            position: absolute;
-            top: 0.25rem;
-            left: 0.25rem;
-            padding: 0.25rem 0.375rem;
-            background-color: var(--green);
-          }
-
           .review-num {
             color: var(--gray-500);
           }
@@ -95,12 +89,13 @@ class ExhibitCard extends IndexCSS {
 
               <c-keyword-tag type="range" label=${this.ageRangeBadge[this.ageRange]}></c-keyword-tag>
 
-              <div class="badge label-xs">전시중</div>
+              <state-badge ExhibitState="in-progress"></state-badge>
 
               <p class="review-num paragraph-xs">방문자 리뷰 ${this.reviewNum}</p>
             </figcaption>
           </figure>
         </a>
+        <c-bookmark-button class="bookmark"></c-bookmark-button>
       </article>
     `;
   }
