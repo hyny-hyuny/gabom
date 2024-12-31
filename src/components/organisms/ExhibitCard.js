@@ -67,35 +67,75 @@ class ExhibitCard extends IndexCSS {
             bottom: 0.375rem;
           }
         }
+
+        /* review-detail  */
+        .exhibit-detail {
+          width: 100%;
+          background-color: var(--gray-50);
+          display: flex;
+          align-items: center;
+          padding: 0.5rem;
+          border-radius: 0.5rem;
+
+          a {
+            flex-grow: 1;
+          }
+
+          .img-wrapper {
+            width: 2.5rem;
+          }
+
+          .bookmark {
+            position: static;
+            flex-grow: 0;
+          }
+        }
       `,
     ];
   }
 
   render() {
-    console.log(this.exhibitTitle);
+    const isReviewDetailPage = this.pageName === ExhibitCard.pageNames.REVIEW_DETAIL;
+
+    console.log(isReviewDetailPage);
+
     return html/* html */ `
-      <article class="exhibit-card">
-        <a href="/pages/ExhibitDetailPage/">
-          <figure>
-            <div class="img-wrapper">
-              <img style="height: 100%" src="/src/assets/profile/juhyun_park.jpg" alt="${this.exhibitTitle}" />
-            </div>
-            <figcaption class="exhibit-info">
-              <strong class="exhibit-title label-md">${this.exhibitTitle}</strong>
+      <article class="exhibit-card ${isReviewDetailPage ? "exhibit-detail" : ""}">
+        ${isReviewDetailPage
+          ? html`<a href="/pages/ExhibitDetailPage/">
+                <figure>
+                  <div class="img-wrapper">
+                    <img style="height: 100%" src="/src/assets/profile/juhyun_park.jpg" alt="${this.exhibitTitle}" />
+                  </div>
+                  <figcaption class="exhibit-info">
+                    <strong class="exhibit-title label-md">${this.exhibitTitle}</strong>
 
-              <c-keyword-tag type="date" startDate=${this.startDate} endDate=${this.endDate}></c-keyword-tag>
+                    <c-keyword-tag type="address" label=${this.exhibitPlace} bg-color=""> </c-keyword-tag>
+                  </figcaption>
+                </figure>
+              </a>
+              <c-bookmark-button class="bookmark"></c-bookmark-button> `
+          : html`<a href="/pages/ExhibitDetailPage/">
+                <figure>
+                  <div class="img-wrapper">
+                    <img style="height: 100%" src="/src/assets/profile/juhyun_park.jpg" alt=${this.exhibitTitle} />
+                  </div>
+                  <figcaption class="exhibit-info">
+                    <strong class="exhibit-title label-md">${this.exhibitTitle}</strong>
 
-              <c-keyword-tag type="address" label=${this.exhibitPlace}> </c-keyword-tag>
+                    <c-keyword-tag type="date" startDate=${this.startDate} endDate=${this.endDate}></c-keyword-tag>
 
-              <c-keyword-tag type="range" label=${this.ageRangeBadge[this.ageRange]}></c-keyword-tag>
+                    <c-keyword-tag type="address" label=${this.exhibitPlace}> </c-keyword-tag>
 
-              <state-badge ExhibitState="in-progress"></state-badge>
+                    <c-keyword-tag type="range" label=${this.ageRangeBadge[this.ageRange]}></c-keyword-tag>
 
-              <p class="review-num paragraph-xs">방문자 리뷰 ${this.reviewNum}</p>
-            </figcaption>
-          </figure>
-        </a>
-        <c-bookmark-button class="bookmark"></c-bookmark-button>
+                    <state-badge ExhibitState="in-progress"></state-badge>
+
+                    <p class="review-num paragraph-xs">방문자 리뷰 ${this.reviewNum}</p>
+                  </figcaption>
+                </figure>
+              </a>
+              <c-bookmark-button class="bookmark"></c-bookmark-button>`}
       </article>
     `;
   }
